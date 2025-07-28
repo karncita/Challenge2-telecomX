@@ -21,32 +21,9 @@ plt.style.use('default')
 sns.set_palette("husl")
 warnings.filterwarnings('ignore')
 
-# Configuración para mostrar todas las columnas
-pd.set_option('display.max_columns', None)
-pd.set_option('display.width', None)
-pd.set_option('display.max_colwidth', None)
-
-print("✅ Bibliotecas importadas exitosamente")
-✅ Bibliotecas importadas exitosamente
-📂 Extracción de Datos desde la API
-# Cargar los datos desde el archivo JSON local
-# Nota: Los datos ya están disponibles localmente desde el repositorio de GitHub
-with open('TelecomX_Data.json', 'r', encoding='utf-8') as file:
-    data = json.load(file)
-
-print(f"✅ Datos cargados exitosamente")
-print(f"📊 Total de registros: {len(data)}")
-print(f"📋 Primeros 2 registros:")
-for i in range(2):
-    print(f"Cliente {i+1}: {data[i]['customerID']}")
-
 # Verificar estructura de un registro para entender el problema
-print(f"\n🔍 Estructura de datos del primer registro:")
-print(f"Charges del primer registro: {data[0]['account']['Charges']}")
-
 # Verificar algunos TotalCharges para encontrar valores problemáticos
-print(f"\n🔍 Valores de TotalCharges en los primeros 10 registros:")
-for i in range(10):
+
     total_charges = data[i]['account']['Charges']['Total']
     print(f"Cliente {i+1}: '{total_charges}' (tipo: {type(total_charges)})")
 ✅ Datos cargados exitosamente
