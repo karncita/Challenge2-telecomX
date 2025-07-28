@@ -742,3 +742,11 @@ ROI de retención: 300-400%
 Inmediatas: Migración de métodos de pago y contratos
 Mediano plazo: Sistema de alerta temprana y onboarding
 Largo plazo: Modelos predictivos y programas de fidelización
+
+
+df['log_Tenure'] = np.log(df['Tenure'] + 1)
+BIN_WIDTH = bin_width(df, 'log_Tenure')
+
+sns.histplot(df['log_Tenure'], binwidth=BIN_WIDTH, color=churn_colors[0], kde=True)
+plt.show()
+
